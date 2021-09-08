@@ -7,13 +7,10 @@
       <%= strip_tags(yield(:title)) + " – " if content_for?(:title) %>
       Rails Foodlog
     </title>
-
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <!-- Rails Foodlog <%= Rails.application.config.version %> (<%= l(Rails.application.config.version_time) %>) -->
 
-    <%# CSS should go closest to the top of the document as possible. %>
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
 
     <%# JavaScript must be in head for Turbolinks to work. %>
@@ -27,8 +24,11 @@
     <meta name="apple-mobile-web-app-title" content="Rails Foodlog">
   </head>
   <body>
-
+  <%= render 'shared/navbar' %>
+   <div class="uk-container">
     <%= yield %>
+  </div>
+    <%= render 'shared/footer' %>
 
   </body>
 </html>
